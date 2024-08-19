@@ -33,13 +33,17 @@ software_licence = readfile("LICENSE", True)
 software_licence = '\n  '.join(software_licence)
 
 requires = [
-    'opencmiss.zinc >= 3.6.0',
-    'opencmiss.exporter >= 0.3.0',
+    'cmlibs.zinc >= 3.6.0',
+    'cmlibs.exporter >= 0.3.0',
     'scaffoldmaker',
     'sparc-curation-tools >= 0.4.2',
-    'PySide2',
-    'dulwich',
 ]
+
+extras_require = {
+    'test': [
+        'dulwich'
+    ]
+}
 
 setup(
     name='sparc-dataset-tools',
@@ -63,4 +67,5 @@ setup(
     include_package_data=True,
     zip_safe=False,
     install_requires=requires,
+    extras_require=extras_require,
 )
