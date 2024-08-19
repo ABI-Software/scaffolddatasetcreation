@@ -11,7 +11,7 @@ from cmlibs.zinc.context import Context
 from sparc.curation.tools.manifests import ManifestDataFrame
 from sparc.curation.tools.ondisk import OnDiskFiles
 from sparc.curation.tools.utilities import convert_to_bytes
-from sparc.curation.tools.scaffold_annotations import get_errors, fix_error, get_confirmation_message
+from sparc.curation.tools.scaffold_annotations import get_errors, fix_error
 
 
 def create_dataset(dataset_dir, mesh_config_file, argon_document):
