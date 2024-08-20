@@ -8,8 +8,8 @@ from cmlibs.exporter.webgl import ArgonSceneExporter as WebGLExporter
 from cmlibs.exporter.thumbnail import ArgonSceneExporter as ThumbnailExporter
 from cmlibs.zinc.context import Context
 
-from sparc.curation.tools.manifests import ManifestDataFrame
-from sparc.curation.tools.ondisk import OnDiskFiles
+from sparc.curation.tools.helpers.manifest_helper import ManifestDataFrame
+from sparc.curation.tools.helpers.file_helper import OnDiskFiles
 from sparc.curation.tools.utilities import convert_to_bytes
 from sparc.curation.tools.scaffold_annotations import get_errors, fix_error
 
