@@ -11,7 +11,7 @@ from cmlibs.zinc.context import Context
 from sparc.curation.tools.helpers.manifest_helper import ManifestDataFrame
 from sparc.curation.tools.helpers.file_helper import OnDiskFiles
 from sparc.curation.tools.utilities import convert_to_bytes
-from sparc.curation.tools.scaffold_annotations import get_errors, fix_error
+from sparc.curation.tools.scaffold_annotations import get_errors, fix_error, fix_errors
 
 
 def create_dataset(dataset_dir, mesh_config_file, argon_document):
@@ -77,23 +77,11 @@ def _export_file(exporter, argon_document):
 
 def _annotate_scaffold(dataset_dir):
     errors = _get_current_errors(dataset_dir)
-    errors_fix_attempted_for = []
-    annotation_failure = False
-    while not annotation_failure and len(errors):
-        for error in errors:
-            error_message = error.get_error_message()
-            print(f"Attempting to fix: {error_message}")
-            fix_error(error)
-            if error_message in errors_fix_attempted_for:
-                print("This error can't be fixed automatically.")
-                annotation_failure = True
-                break
-            else:
-                errors_fix_attempted_for.append(error_message)
-        errors = _get_current_errors(dataset_dir)
-
-    if annotation_failure:
-        print("Could not annotate scaffold successfully.")
+    fixed = fix_errors(errors)
+    if fixed:
+        print("Scaffold has been successfully annotated.")
+    else:
+        print("Did not annotate scaffold successfully.")
 
 
 def _get_current_errors(dataset_dir):
