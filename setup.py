@@ -36,7 +36,7 @@ requires = [
     'cmlibs.zinc >= 3.6.0',
     'cmlibs.exporter >= 0.3.0',
     'scaffoldmaker',
-    'sparc-curation-tools >= 0.7.4',
+    'sparc-curation-tools >= 0.7.5',
 ]
 
 extras_require = {
